@@ -53,7 +53,12 @@ public class SendReceiveMessages {
 
         return sqsClient;
      }
-	 
+	
+    public  java.sql.ResultSet openrs(java.sql.Statement stat, String sql) throws java.sql.SQLException  {
+            java.sql.ResultSet rs = stat.executeQuery(sql);
+            return (rs);
+    } 
+
     public String getXMessages() {
 
         List attr = new ArrayList<String>();
@@ -95,6 +100,8 @@ public class SendReceiveMessages {
 				out.println("MessageName: " + messageName);
 
 				allMessages.add(myMessage);
+				java.sql.ResultSet rsLookUp = openrs( stat1, "SELECT " + fName + " FROM " + table + " WHERE " + messageName )
+
 			}
 
 			return convertToString(toXml(allMessages));

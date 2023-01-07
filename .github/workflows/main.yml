@@ -1,4 +1,4 @@
-name: Checkmarx AST Scan
+name: Checkmarx Sarif Integration
 on:
   pull_request:
     types: [opened, reopened, synchronize]

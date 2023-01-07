@@ -1,9 +1,14 @@
 name: Checkmarx Sarif Integration
 on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - master
+      - main
   push:
     branches:
-      - main
       - master
+      - main
 
 jobs:
   build:
